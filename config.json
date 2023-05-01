@@ -1,8 +1,20 @@
 {
     "data":[
         {
-            "banner":"",
-            "url":""
+            "banner":"https://support.lta-indie.com/banner/1_Line_Puzzle.jpg",
+            "url":"https://play.google.com/store/apps/details?id=com.lta.oneline.puzzle"
+        },
+        {
+            "banner":"https://support.lta-indie.com/banner/Craft_Runer.jpg",
+            "url":"https://play.google.com/store/apps/details?id=com.lta.craftrunner.moneyrun3d"
+        },
+        {
+            "banner":"https://support.lta-indie.com/banner/One_Shot_Puzzle.jpg",
+            "url":"https://play.google.com/store/apps/details?id=com.lta.mr.bullet.puzzle"
+        },
+        {
+            "banner":"https://support.lta-indie.com/banner/Stack_Ball.jpg",
+            "url":"https://play.google.com/store/apps/details?id=com.lta.stackball3d.crashplatforms"
         }
     ]
 }
