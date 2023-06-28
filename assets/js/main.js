@@ -129,12 +129,10 @@ function openModal() {
     modal.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
@@ -147,6 +145,11 @@ document.querySelector('#contact-form').addEventListener('submit', sendEmail);
 function sendEmail(e) {
     e.preventDefault();
 
+    if (!isAuth) {
+        handleAuth();
+        return;
+    }
+
     const name = document.querySelector('#contact-form [name=name]').value;
     const email = document.querySelector('#contact-form [name=email]').value;
     const message = document.querySelector('#contact-form [name=message]').value;
@@ -154,23 +157,70 @@ function sendEmail(e) {
     const sendBtn = document.querySelector('.contact-send-button');
     sendBtn.setAttribute('disabled', '');
 
-    Email.send({
-        Host: "smtp.elasticemail.com",
-        Username: "vubamanh05@gmail.com",
-        Password: "04DBD37B3EDC5ECF51CCAF258F00C83623AF",
-        To: 'lta@lta-indie.com',
-        From: "vubamanh05@gmail.com",
-        Subject: "User Contact",
-        Body: `<h1>${email} contact : </h1><p>${message}</p>`,
-    })
-    .then(function (message) {
-        console.log(message);
-        openModal();
-        sendBtn.removeAttribute('disabled');
-    })
-    .catch(function (error) {
-        console.log(error);
-        openModal();
-        sendBtn.removeAttribute('disabled');
+    var emailContent = 
+`From: ${email}
+To: lta@lta-indie.com
+Subject: ${name} contact
+Date: Fri, 21 Nov 1997 09:55:06 -0600 
+Message-ID: <1234@local.machine.example>
+
+${message}.`
+
+    var base64EncodedEmail = base64urlEncode(emailContent);
+
+    var request = gapi.client.gmail.users.messages.send({
+      'userId': 'me',
+      'resource': {
+        'raw': base64EncodedEmail
+      }
     });
+
+    request
+        .then(() => {
+            sendBtn.removeAttribute('disabled');
+            openModal();
+        })
+        .catch((error) => {
+            console.log(error);
+            sendBtn.removeAttribute('disabled');
+            openModal();
+        });
+}
+
+var b64u = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"
+var b64pad = '='
+
+function base64EncodeData(data, len, b64x) {
+    var dst = ""
+    var i
+
+    for (i = 0; i <= len - 3; i += 3)
+    {
+        dst += b64x.charAt(data.charCodeAt(i) >>> 2)
+        dst += b64x.charAt(((data.charCodeAt(i) & 3) << 4) | (data.charCodeAt(i+1) >>> 4))
+        dst += b64x.charAt(((data.charCodeAt(i+1) & 15) << 2) | (data.charCodeAt(i+2) >>> 6))
+        dst += b64x.charAt(data.charCodeAt(i+2) & 63)
+    }
+
+    if (len % 3 == 2)
+    {
+        dst += b64x.charAt(data.charCodeAt(i) >>> 2)
+        dst += b64x.charAt(((data.charCodeAt(i) & 3) << 4) | (data.charCodeAt(i+1) >>> 4))
+        dst += b64x.charAt(((data.charCodeAt(i+1) & 15) << 2))
+        dst += b64pad
+    }
+    else if (len % 3 == 1)
+    {
+        dst += b64x.charAt(data.charCodeAt(i) >>> 2)
+        dst += b64x.charAt(((data.charCodeAt(i) & 3) << 4))
+        dst += b64pad
+        dst += b64pad
+    }
+
+    return dst
+}
+
+function base64urlEncode(str) {
+    var utf8str = unescape(encodeURIComponent(str))
+    return base64EncodeData(utf8str, utf8str.length, b64u)
 }
