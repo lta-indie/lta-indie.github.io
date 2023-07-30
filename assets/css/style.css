@@ -184,7 +184,7 @@ body {
 
 .slider .slider-button:hover img {
     transition: all 0.5s;
-    transform: scale(1);
+    transform: scale(1.1);
 }
 
 #content .content-section {
