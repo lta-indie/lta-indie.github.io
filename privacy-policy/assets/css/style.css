@@ -182,10 +182,10 @@ body {
     transform: translateX(-50%);
 }
 
-.slider .slider-button:hover img {
+/* .slider .slider-button:hover img {
     transition: all 0.5s;
     transform: scale(1.1);
-}
+} */
 
 #content .content-section {
     max-width: 800px;
