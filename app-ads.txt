@@ -3910,3 +3910,5 @@ opera.com,pub9443931419968,DIRECT,55a0c5fd61378de3
 improvedigital.com, 2320, RESELLER
 
 facebook.com, 826181638089625, DIRECT, c3e20eee3f780d68
+
+adsyield.com, 1233, RESELLER
