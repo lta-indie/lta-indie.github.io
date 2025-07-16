@@ -4,9 +4,51 @@ var mobileMenuNavItems = document.getElementsByClassName('mobile-menu-nav-item')
 var navButton = document.querySelectorAll('#nav a');
 for (let index = 0; index < navButton.length; index++) {
     let element = navButton[index];
-    
+
     element.addEventListener('click', hideMobileMenu);
 }
+
+// Steam Games slider
+const steamGamesSliders = document.querySelectorAll("#steam-games-slider .slider-img");
+var steamGamesSliderIndex = 0;
+changeSteamGamesSlider(steamGamesSliderIndex);
+
+var gameSteamSliderInterval = setInterval(changeSteamGamesSlider, 5000);
+
+function changeSteamGamesSlider() {
+    steamGamesSliderIndex++;
+
+    if (steamGamesSliderIndex >= steamGamesSliders.length) {
+        steamGamesSliderIndex = 0;
+    }
+
+    for (let i = 0; i < steamGamesSliders.length; i++) {
+        steamGamesSliders[i].style.display = "none";
+    }
+
+    steamGamesSliders[steamGamesSliderIndex].style.display = "block";
+}
+
+var steamGamesSliderLeftArror = document.querySelector('#steam-games-slider .slider-arrow-left');
+var steamGamesSliderRightArror = document.querySelector('#steam-games-slider .slider-arrow-right');
+
+steamGamesSliderLeftArror.addEventListener('click', () => {
+    steamGamesSliderIndex -= 2;
+
+    if (steamGamesSliderIndex < -1) steamGamesSliderIndex = gamesSliders.length - 2;
+
+    clearInterval(gameSteamSliderInterval);
+    gameSteamSliderInterval = setInterval(changeSteamGamesSlider, 5000);
+
+    changeSteamGamesSlider(steamGamesSliderIndex);
+});
+
+steamGamesSliderRightArror.addEventListener('click', () => {
+    changeSteamGamesSlider();
+
+    clearInterval(gameSteamSliderInterval);
+    gameSteamSliderInterval = setInterval(changeSteamGamesSlider, 5000);
+});
 
 // Games slider
 const gamesSliders = document.querySelectorAll("#games-slider .slider-img");
@@ -26,7 +68,7 @@ function changeGamesSlider() {
         gamesSliders[i].style.display = "none";
     }
 
-    gamesSliders[gamesSliderIndex].style.display = "block";            
+    gamesSliders[gamesSliderIndex].style.display = "block";
 }
 
 var gamesSliderLeftArror = document.querySelector('#games-slider .slider-arrow-left');
@@ -69,7 +111,7 @@ function changeAppsSlider() {
         appsSlider[i].style.display = "none";
     }
 
-    appsSlider[appsSliderIndex].style.display = "block";            
+    appsSlider[appsSliderIndex].style.display = "block";
 }
 
 var appsSliderLeftArror = document.querySelector('#apps-slider .slider-arrow-left');
@@ -94,23 +136,19 @@ appsSliderRightArror.addEventListener('click', () => {
 });
 
 
-function hideMobileMenu()
-{
-    for(let mobileMenuNavItem of mobileMenuNavItems)
-    {   
-        if(mobileMenuNavItem.className.indexOf('open') != -1){
+function hideMobileMenu() {
+    for (let mobileMenuNavItem of mobileMenuNavItems) {
+        if (mobileMenuNavItem.className.indexOf('open') != -1) {
             mobileMenuNavItem.classList.remove('open');
         }
     }
 }
 
-function hideAndShowMobileMenu()
-{
-    for(let mobileMenuNavItem of mobileMenuNavItems)
-    {   
-        if(mobileMenuNavItem.className.indexOf('open') == -1){
+function hideAndShowMobileMenu() {
+    for (let mobileMenuNavItem of mobileMenuNavItems) {
+        if (mobileMenuNavItem.className.indexOf('open') == -1) {
             mobileMenuNavItem.classList.add('open');
-        }else {
+        } else {
             mobileMenuNavItem.classList.remove('open');
         }
     }
@@ -130,17 +168,17 @@ function openModal() {
 }
 
 span.onclick = function() {
-  modal.style.display = "none";
+    modal.style.display = "none";
 }
 
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
 
 
-document.querySelector('#contact-form').addEventListener('submit', sendEmail);        
+document.querySelector('#contact-form').addEventListener('submit', sendEmail);
 
 function sendEmail(e) {
     e.preventDefault();
@@ -157,8 +195,8 @@ function sendEmail(e) {
     const sendBtn = document.querySelector('.contact-send-button');
     sendBtn.setAttribute('disabled', '');
 
-    var emailContent = 
-`From: ${email}
+    var emailContent =
+        `From: ${email}
 To: lta@lta-indie.com
 Subject: ${name} contact
 Date: Fri, 21 Nov 1997 09:55:06 -0600 
@@ -169,10 +207,10 @@ ${message}.`
     var base64EncodedEmail = base64urlEncode(emailContent);
 
     var request = gapi.client.gmail.users.messages.send({
-      'userId': 'me',
-      'resource': {
-        'raw': base64EncodedEmail
-      }
+        'userId': 'me',
+        'resource': {
+            'raw': base64EncodedEmail
+        }
     });
 
     request
@@ -194,23 +232,19 @@ function base64EncodeData(data, len, b64x) {
     var dst = ""
     var i
 
-    for (i = 0; i <= len - 3; i += 3)
-    {
+    for (i = 0; i <= len - 3; i += 3) {
         dst += b64x.charAt(data.charCodeAt(i) >>> 2)
-        dst += b64x.charAt(((data.charCodeAt(i) & 3) << 4) | (data.charCodeAt(i+1) >>> 4))
-        dst += b64x.charAt(((data.charCodeAt(i+1) & 15) << 2) | (data.charCodeAt(i+2) >>> 6))
-        dst += b64x.charAt(data.charCodeAt(i+2) & 63)
+        dst += b64x.charAt(((data.charCodeAt(i) & 3) << 4) | (data.charCodeAt(i + 1) >>> 4))
+        dst += b64x.charAt(((data.charCodeAt(i + 1) & 15) << 2) | (data.charCodeAt(i + 2) >>> 6))
+        dst += b64x.charAt(data.charCodeAt(i + 2) & 63)
     }
 
-    if (len % 3 == 2)
-    {
+    if (len % 3 == 2) {
         dst += b64x.charAt(data.charCodeAt(i) >>> 2)
-        dst += b64x.charAt(((data.charCodeAt(i) & 3) << 4) | (data.charCodeAt(i+1) >>> 4))
-        dst += b64x.charAt(((data.charCodeAt(i+1) & 15) << 2))
+        dst += b64x.charAt(((data.charCodeAt(i) & 3) << 4) | (data.charCodeAt(i + 1) >>> 4))
+        dst += b64x.charAt(((data.charCodeAt(i + 1) & 15) << 2))
         dst += b64pad
-    }
-    else if (len % 3 == 1)
-    {
+    } else if (len % 3 == 1) {
         dst += b64x.charAt(data.charCodeAt(i) >>> 2)
         dst += b64x.charAt(((data.charCodeAt(i) & 3) << 4))
         dst += b64pad
