@@ -24,7 +24,7 @@
 <meta name="facebook-domain-verification" content="3dv31kj5lbhne6gv1mmjoskm1fqriz">
 <meta name="theme-color" content="#ffffff">
 <script src="https://www.paypal.com/sdk/js?client-id=BAAo_H3zGRqDm9NHThr9tD7w_q3ZWWOl0ch0PLIgMVY98QVM9Nt312r-_R-4ir2n_CezFLgATQeT0xDcT8&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 .ico{display:inline-block;width:1em;height:1em;vertical-align:-.125em;fill:currentColor;margin-right:.35rem;flex-shrink:0}
 .ico-lg{width:1.2em;height:1.2em}
@@ -80,7 +80,7 @@
   --card-border:#e5e2db;
 }
 html{scroll-behavior:smooth;font-size:16px}
-body{background:var(--bg);color:var(--fg);font-family:'Syne',sans-serif;overflow-x:hidden;line-height:1.6}
+body{background:var(--bg);color:var(--fg);font-family:'Inter',sans-serif;overflow-x:hidden;line-height:1.6}
 a{color:inherit;text-decoration:none}
 
 
@@ -91,9 +91,9 @@ a{color:inherit;text-decoration:none}
 ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 3rem;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);background:rgba(255,255,255,.85);border-bottom:1px solid rgba(0,0,0,.06);transition:all .4s cubic-bezier(.22,1,.36,1)}
+nav{position:fixed;top:0;left:0;right:0;z-index:9999;padding:1rem 3rem;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(255,255,255,.92);border-bottom:1px solid rgba(0,0,0,.06);transition:background .3s,box-shadow .3s,padding .3s;transform:none !important}
 .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:4px;color:var(--accent);display:flex;align-items:center;gap:.8rem}
-.nav-logo span{font-size:.65rem;color:var(--fg2);letter-spacing:2px;font-family:'Syne',sans-serif;text-transform:uppercase}
+.nav-logo span{font-size:.65rem;color:var(--fg2);letter-spacing:2px;font-family:'Inter',sans-serif;text-transform:uppercase}
 .nav-links{display:flex;gap:2.5rem;align-items:center}
 .nav-links a{font-size:.75rem;text-transform:uppercase;letter-spacing:3px;color:var(--fg2);transition:color .3s;font-weight:600}
 .nav-links a:hover{color:var(--accent)}
@@ -173,10 +173,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 3rem;display
 .manifesto-text p strong{color:var(--fg)}
 
 .roles-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.role-card{background:var(--bg);border:1px solid var(--card-border);padding:1.2rem;border-radius:12px;transition:all .4s cubic-bezier(.22,1,.36,1)}
-.role-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 12px 30px rgba(212,160,0,.1)}
-.role-icon{font-size:1.3rem;margin-bottom:.5rem;transition:transform .4s ease}
-.role-card:hover .role-icon{transform:scale(1.2)}
+.role-card{background:var(--bg);border:1px solid var(--card-border);padding:1.2rem;border-radius:12px}
+.role-icon{font-size:1.3rem;margin-bottom:.5rem}
 .role-title{font-size:.75rem;text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:.3rem}
 .role-desc{font-size:.7rem;color:var(--fg2);line-height:1.5}
 
@@ -242,10 +240,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 3rem;display
 /* CONTACT FORM */
 .contact-form{max-width:500px;margin:2.5rem auto 0;text-align:left}
 .contact-form .form-group{margin-bottom:1rem}
-.contact-form input,.contact-form textarea{width:100%;padding:.8rem 1rem;border:1px solid var(--card-border);border-radius:10px;background:var(--bg2);color:var(--fg);font-family:"Syne",sans-serif;font-size:.85rem;outline:none;transition:border-color .3s}
+.contact-form input,.contact-form textarea{width:100%;padding:.8rem 1rem;border:1px solid var(--card-border);border-radius:10px;background:var(--bg2);color:var(--fg);font-family:"Inter",sans-serif;font-size:.85rem;outline:none;transition:border-color .3s}
 .contact-form input:focus,.contact-form textarea:focus{border-color:var(--accent)}
 .contact-form textarea{min-height:120px;resize:vertical}
-.contact-form button{width:100%;padding:.8rem;background:var(--accent);color:#fff;border:none;border-radius:10px;font-family:"Syne",sans-serif;font-size:.8rem;text-transform:uppercase;letter-spacing:2px;font-weight:700;cursor:pointer;transition:all .3s}
+.contact-form button{width:100%;padding:.8rem;background:var(--accent);color:#fff;border:none;border-radius:10px;font-family:"Inter",sans-serif;font-size:.8rem;text-transform:uppercase;letter-spacing:2px;font-weight:700;cursor:pointer;transition:all .3s}
 .contact-form button:hover{background:var(--accent2);transform:translateY(-2px)}
 .paypal-section{margin-top:2rem;padding-top:2rem;border-top:1px solid var(--card-border)}
 
@@ -266,7 +264,7 @@ footer .heart{color:var(--accent2)}
 
 /* RESPONSIVE */
 @media(max-width:768px){
-  nav{padding:1rem 1.5rem}
+  nav{padding:.8rem 1.5rem;position:fixed !important;top:0 !important}
   .nav-links{display:none}
   .section{padding:4rem 1.5rem}
   .manifesto-grid{grid-template-columns:1fr;gap:2rem}
@@ -288,7 +286,7 @@ footer .heart{color:var(--accent2)}
     <span>Luster To Alive</span>
   </a>
   <div class="nav-links">
-    <a href="#ltai">LTAI.ai</a>
+    <a href="https://ltai.ai" target="_blank">LTAI.AI</a>
     <a href="#next">Coming Soon</a>
     <a href="#pc-games">PC Games</a>
     <a href="#mobile-games">Mobile</a>
@@ -311,7 +309,7 @@ footer .heart{color:var(--accent2)}
   <p class="hero-sub">
     I'm <strong>Lê Tuấn Anh</strong> — an indie developer from Vietnam.
     Full Stack by trade — I code server and client for companies.
-    On my own, I launched <strong>LTAI.ai</strong> — a full AI SaaS platform, shipped <strong>11+ games & apps</strong> across <strong>Steam</strong>, <strong>Google Play</strong>, and the <strong>App Store</strong>.
+    On my own, I launched <strong><a href="https://ltai.ai" target="_blank" style="color:var(--accent2);text-decoration:underline">LTAI.ai</a></strong> — a full AI SaaS platform, shipped <strong>11+ games & apps</strong> across <strong><a href="https://store.steampowered.com/developer/LTA" target="_blank" style="color:inherit">Steam</a></strong>, <strong><a href="https://play.google.com/store/apps/dev?id=6850164682746290365" target="_blank" style="color:inherit">Google Play</a></strong>, and the <strong><a href="https://apps.apple.com/sa/developer/tuan-anh-le/id1119108509" target="_blank" style="color:inherit">App Store</a></strong>.
     Independent. One person. No limits.
   </p>
   <div class="hero-stats">
@@ -341,18 +339,21 @@ footer .heart{color:var(--accent2)}
 <!-- PLATFORM STRIP -->
 <div class="platform-strip">
   <div class="platform-strip-inner">
-    <div class="platform-item">
+    <a href="https://store.steampowered.com/developer/LTA" target="_blank" class="platform-item" style="text-decoration:none;transition:opacity .3s" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
       <svg style="width:18px;height:18px;fill:var(--accent)"><use href="#ico-steam"/></svg>
       Steam
-    </div>
-    <div class="platform-item">
+    </a>
+    <a href="https://play.google.com/store/apps/dev?id=6850164682746290365" target="_blank" class="platform-item" style="text-decoration:none;transition:opacity .3s" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
       <svg style="width:16px;height:16px;fill:var(--accent)"><use href="#ico-gplay"/></svg>
       Google Play
-    </div>
-    <div class="platform-item">
+    </a>
+    <a href="https://apps.apple.com/sa/developer/tuan-anh-le/id1119108509" target="_blank" class="platform-item" style="text-decoration:none;transition:opacity .3s" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
       <svg style="width:18px;height:18px;fill:var(--accent)"><use href="#ico-apple"/></svg>
       App Store
-    </div>
+    </a>
+    <a href="https://ltai.ai" target="_blank" class="platform-item" style="text-decoration:none;transition:opacity .3s" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+      LTAI.AI
+    </a>
   </div>
 </div>
 
@@ -365,7 +366,7 @@ footer .heart{color:var(--accent2)}
         I'm a <strong>Full Stack Developer</strong> — server, client, the whole stack. That's my professional skill set. But on my own time, I've been building something bigger: <strong>a solo publishing operation</strong>.
       </p>
       <p>
-        I source licensed products — from <strong>SellMyApp</strong>, <strong>CraftPix</strong>, student contributions, and licensed source code. Then I do the real work: <strong>customize, fix bugs, add content, integrate SDKs, optimize monetization, and publish</strong> across three platforms. I also operate <strong>LTAI.ai</strong> — a full AI SaaS platform built on purchased source code that I configured and deployed.
+        I source licensed products — from <strong>SellMyApp</strong>, <strong>CraftPix</strong>, student contributions, and licensed source code. Then I do the real work: <strong>customize, fix bugs, add content, integrate SDKs, optimize monetization, and publish</strong> across three platforms. I also operate <strong><a href="https://ltai.ai" target="_blank" style="color:var(--accent2);text-decoration:underline">LTAI.ai</a></strong> — a full AI SaaS platform built on purchased source code that I configured and deployed.
       </p>
       <p>
         I lost <strong>100M VND</strong> learning marketing. Every product is a lesson. And now — with full-stack skills and battle-tested business knowledge — I'm building <strong>LTA Framework</strong>, my own game development framework from scratch.
@@ -744,7 +745,7 @@ footer .heart{color:var(--accent2)}
     </div>
     <div class="timeline-item">
       <div class="timeline-year">LTAI.AI</div>
-      <div class="timeline-content">Purchased a licensed AI SaaS source code, then customized, configured, and deployed <strong>LTAI.ai</strong> — a full AI platform powered by Claude Opus & GPT. 70+ templates, AI Chat, Images, Voiceover, Video, Code Gen. Plans from $9.99/month. Full-stack skills applied to <strong>real SaaS operations</strong>.</div>
+      <div class="timeline-content">Purchased a licensed AI SaaS source code, then customized, configured, and deployed <strong><a href="https://ltai.ai" target="_blank" style="color:var(--accent2);text-decoration:underline">LTAI.ai</a></strong> — a full AI platform powered by Claude Opus & GPT. 70+ templates, AI Chat, Images, Voiceover, Video, Code Gen. Plans from $9.99/month. Full-stack skills applied to <strong>real SaaS operations</strong>.</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-year">STEAM DEBUT</div>
@@ -907,40 +908,25 @@ document.querySelectorAll('.hero-stat .num').forEach(el => {
 });
 
 // ===== NAV ON SCROLL =====
-let lastScroll = 0;
 window.addEventListener('scroll', () => {
   const nav = document.querySelector('nav');
-  const scrollY = window.scrollY;
-  
-  if (scrollY > 50) {
+  if (window.scrollY > 50) {
     nav.style.background = 'rgba(255,255,255,.97)';
     nav.style.boxShadow = '0 2px 20px rgba(0,0,0,.06)';
-    nav.style.padding = '0.8rem 3rem';
   } else {
-    nav.style.background = 'rgba(255,255,255,.85)';
+    nav.style.background = 'rgba(255,255,255,.92)';
     nav.style.boxShadow = 'none';
-    nav.style.padding = '1.2rem 3rem';
   }
-  
-  // Hide/show nav on scroll direction
-  if (scrollY > 300) {
-    if (scrollY > lastScroll + 5) {
-      nav.style.transform = 'translateY(-100%)';
-    } else if (scrollY < lastScroll - 5) {
-      nav.style.transform = 'translateY(0)';
-    }
-  } else {
-    nav.style.transform = 'translateY(0)';
-  }
-  lastScroll = scrollY;
 });
 
 // ===== SMOOTH SCROLL =====
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
+    const href = link.getAttribute('href');
+    if (href === '#' || href.length < 2) return;
     e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
+    const target = document.querySelector(href);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
 
